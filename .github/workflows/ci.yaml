@@ -7,6 +7,8 @@ on:
       - master
   push:
     branches:
+      - feature/*
+      - bugfix/*
       - master
 
 jobs:
