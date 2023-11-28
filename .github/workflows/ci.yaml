@@ -5,6 +5,11 @@ on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - feature/*
+      - bugfix/*
+      - master
 
 jobs:
 
