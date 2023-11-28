@@ -1,8 +1,8 @@
 name: Sonarqube scan workflow
 on:
   workflow_run:
-    workflows: [ "Continuous Integration Workflow" ]
-    types: [ completed ]
+    workflows: ["Continuous Integration Workflow"]
+    types: [completed]
 
 jobs:
   on-success:
