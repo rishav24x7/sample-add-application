@@ -1,0 +1,29 @@
+name: Continuous Integration Workflow
+
+# This workflow is triggered whenever a new PR is created on the main branch
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+
+  test:
+    name: 'Run unit tests'
+    defaults:
+      run:
+        shell: bash
+
+        working-directory: sample-add-application/
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: 'Checkout repository'
+
+      - name: 'Run Tests'
+        run: mvn clean install
