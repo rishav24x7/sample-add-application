@@ -1,0 +1,29 @@
+name: Sonarqube scan workflow
+on:
+  push:
+    branches:
+      - master
+      - feature/*
+      - bugfix/*
+      - release/*
+  pull_request:
+    branches:
+      - master
+  workflow_run:
+    workflows: [ "Continuous Integration Workflow" ]
+    types: [ completed ]
+
+job:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Analyze with SonarQube
+        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args:
+            -Dsonar.projectKey=org.rishav:sample-add-application
