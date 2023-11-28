@@ -17,7 +17,7 @@
             ${project.basedir}/target/site/jacoco/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
         <sonar.language>java</sonar.language>
-        <sonar.login>sqa_9ce3014f009769a24c1415d54eec0bcfaece2bf3</sonar.login>
+        <sonar.login>sqa_c2b03fe07c836ffaa85b13bef59dab74656d6160</sonar.login>
         <sonar.host.url>http://localhost:9001/</sonar.host.url>
     </properties>
 
