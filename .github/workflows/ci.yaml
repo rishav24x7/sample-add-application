@@ -41,7 +41,8 @@ jobs:
       - name: See workspace
         run: |
           echo '${{ github.workspace }}'
-          cd ${{ github.workspace }} && ls -al
+          cd ${{ github.workspace }}
+          ls -la
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         env:
@@ -51,3 +52,4 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=org.rishav:sample-add-application
+            -Dsonar.sources=**/src/main/java
