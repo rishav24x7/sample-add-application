@@ -47,5 +47,5 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=org.rishav:sample-add-application
-            -Dsonar.sources=sample-add-application/src/main/java
-            -Dsonar.tests=sample-add-application/src/test/java
+            -Dsonar.sources=~/sample-add-application/src/main/java
+            -Dsonar.tests=~/sample-add-application/src/test/java
