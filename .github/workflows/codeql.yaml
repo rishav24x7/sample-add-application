@@ -1,10 +1,14 @@
 name: "CodeQL"
-
+# This workflow will only run if the Continuous Integration Workflow is success.
 on:
+  workflow_run:
+    workflows: [ "Continuous Integration Workflow" ]
+    types: [ completed ]
   workflow_dispatch:
 
 jobs:
   analyze:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Analyze
     runs-on: ubuntu-latest
     timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
