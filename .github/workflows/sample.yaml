@@ -1,0 +1,23 @@
+name: Sample Workflow
+
+# This workflow is triggered whenever a new PR is created on the main branch
+on:
+  workflow_dispatch:
+
+jobs:
+
+  test:
+    name: 'Run unit tests'
+    defaults:
+      run:
+        shell: bash
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: 'Checkout repository'
+
+      - name: 'Run Tests'
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
+
