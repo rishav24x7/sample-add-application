@@ -25,9 +25,7 @@ jobs:
         run: mvn clean install
       - name: 'See workspace'
         run: |
-          cd ${{ github.workspace }}
-          ls -al
-      - name: 'Java version'
-        run: java -version
+          echo '${{ env.javaLocation }}'
+          echo '${{ env.javaLocation }}-${{ hashFiles('pom.xml') }}'
         
 
