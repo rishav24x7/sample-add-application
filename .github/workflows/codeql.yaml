@@ -1,15 +1,12 @@
 name: "CodeQL"
 
 on:
-  push:
-    branches: [ "master", "feature/*" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   analyze:
     name: Analyze
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
     permissions:
       actions: read
