@@ -32,12 +32,12 @@ jobs:
         name: 'Checkout repository'
       - uses: actions/download-artifact@v3
       - name: Display structure of downloaded files
-        run: ls -lr
+        run: ls -R
       - name: See workspace
         run: |
           echo '${{ github.workspace }}'
-          cd ${{ github.workspace }}/my-artifact
-          ls -la
+          cd ${{ github.workspace }}/my-artifact/src
+          ls -R
       - name: Sonar scan
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         env:
