@@ -6,7 +6,7 @@ on:
 
 jobs:
   on-success:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Analyze with SonarQube
@@ -18,3 +18,5 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=org.rishav:sample-add-application
+            -Dsonar.sources=src/main/java
+            -Dsonar.tests=src/test/java
