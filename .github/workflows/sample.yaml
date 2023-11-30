@@ -48,7 +48,8 @@ jobs:
           args:
             -Dsonar.projectKey=org.rishav:sample-add-application
             -Dsonar.projectBaseDir=./my-artifact
-            -Dsonar.sources=./my-artifact/src/main/java
+            -Dsonar.sources=./src/main/java
+            -Dsonar.tests=./src/test/java
 
         
 
