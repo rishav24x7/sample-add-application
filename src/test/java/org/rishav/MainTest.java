@@ -19,7 +19,7 @@ public class MainTest {
     public void subtractNumber_test(){
         Main main_object = new Main();
         int result = main_object.subtractNumbers(5,4);
-        Assertions.assertEquals(1, result);
+        Assertions.assertEquals(0, result);
     }
 
     @Test

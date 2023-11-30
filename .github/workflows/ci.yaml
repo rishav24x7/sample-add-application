@@ -22,6 +22,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: 'Checkout repository'
-
+      - name: Set up cache for maven
+          uses: actions/setup-java@v3
+          with:
+            java-version: '8'
+            distribution: 'temurin'
+            cache: maven
       - name: 'Run Tests'
         run: mvn clean install
+  sonar:
+    name: 'SonarQube Scan'
+    defaults:
+      run:
+        shell: bash
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Analyze with SonarQube
+        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args:
+            -Dsonar.projectKey=org.rishav:sample-add-application
+            -Dsonar.sources=src/main/java
+            -Dsonar.tests=src/test/java

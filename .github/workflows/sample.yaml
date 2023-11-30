@@ -1,6 +1,5 @@
 name: Sample Workflow
 
-# This workflow is triggered whenever a new PR is created on the main branch
 on:
   workflow_dispatch:
 
@@ -23,9 +22,5 @@ jobs:
           cache: maven
       - name: 'Run Tests'
         run: mvn clean install
-      - name: 'See workspace'
-        run: |
-          echo '${{ env.javaLocation }}'
-          echo '${{ env.javaLocation }}-${{ hashFiles('pom.xml') }}'
         
 
