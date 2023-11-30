@@ -15,9 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: 'Checkout repository'
+      - name: 'Run Tests'
+        run: mvn clean install
       - name: 'See workspace'
         run: |
-          echo ${{ github.workspace }}
-          echo $GITHUB_WORKSPACE
+          cd ${{ github.workspace }}
+          ls -al
         
 
