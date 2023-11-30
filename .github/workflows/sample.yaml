@@ -6,7 +6,7 @@ on:
 jobs:
 
   test:
-    name: 'Run unit tests'
+    name: 'Checkout the repo'
     defaults:
       run:
         shell: bash
