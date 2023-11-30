@@ -10,7 +10,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         name: 'Checkout repository'
