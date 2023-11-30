@@ -28,16 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/checkout@v3
-        name: 'Checkout repository'
       - uses: actions/download-artifact@v3
-      - name: Display structure of downloaded files
-        run: ls -R
-      - name: See workspace
-        run: |
-          echo '${{ github.workspace }}'
-          cd ${{ github.workspace }}/my-artifact/src
-          ls -R
+        name: Download the artifact
       - name: Sonar scan
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         env:
