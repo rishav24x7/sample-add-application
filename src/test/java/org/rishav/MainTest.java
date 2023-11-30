@@ -29,4 +29,11 @@ public class MainTest {
         Assert.assertEquals(result, true);
     }
 
+    @Test
+    public void compareNumbers_test_else_block(){
+        Main main_object = new Main();
+        boolean result = main_object.compareNumbers(29,30);
+        Assert.assertEquals(result, false);
+    }
+
 }
