@@ -38,6 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: See workspace
+        run: |
+          echo '${{ github.workspace }}'
+          cd ${{ github.workspace }} && ls -al
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         env:
@@ -47,5 +51,3 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=org.rishav:sample-add-application
-            -Dsonar.sources=~/sample-add-application/src/main/java
-            -Dsonar.tests=~/sample-add-application/src/test/java
