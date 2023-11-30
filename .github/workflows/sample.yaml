@@ -50,6 +50,8 @@ jobs:
             -Dsonar.projectBaseDir=./my-artifact
             -Dsonar.sources=./src/main/java
             -Dsonar.tests=./src/test/java
+            -Dsonar.java.libraries=./target/classes
+            -Dsonar.java.test.libraries=./target/test-classes
 
         
 
